@@ -1,0 +1,219 @@
+[
+  {
+    "model": "products.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "price": "199.99",
+      "count": 9,
+      "date": "2023-07-27T22:11:48.538Z",
+      "title": "iphone 4",
+      "description": "16 gb, black",
+      "full_description": "Iphone 4. Date realese data - 7 june 2010. Revolution smartphone by Apple company.",
+      "free_delivery": true,
+      "tags": [
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "products.product",
+    "pk": 2,
+    "fields": {
+      "category": 3,
+      "price": "799.00",
+      "count": 8,
+      "date": "2023-07-27T22:13:32.302Z",
+      "title": "MacBook Air",
+      "description": "M1, 8/256",
+      "full_description": "fast! light! nice!",
+      "free_delivery": true,
+      "tags": [
+        1,
+        3
+      ]
+    }
+  },
+  {
+    "model": "products.imagesproduct",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "image": "products/product-1/iphone_4.png",
+      "description": "main photo"
+    }
+  },
+  {
+    "model": "products.imagesproduct",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "image": "products/product-2/macbook2.jpeg",
+      "description": "mb main photo"
+    }
+  },
+  {
+    "model": "products.review",
+    "pk": 1,
+    "fields": {
+      "user": 1,
+      "product": 1,
+      "text": "Good phone",
+      "rate": 5,
+      "date": "2023-07-27T22:11:48.548Z"
+    }
+  },
+  {
+    "model": "products.review",
+    "pk": 2,
+    "fields": {
+      "user": 14,
+      "product": 1,
+      "text": "Normal!",
+      "rate": 4,
+      "date": "2023-07-27T22:11:48.550Z"
+    }
+  },
+  {
+    "model": "products.review",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "product": 2,
+      "text": "i love him!",
+      "rate": 5,
+      "date": "2023-07-27T22:13:32.308Z"
+    }
+  },
+  {
+    "model": "products.review",
+    "pk": 4,
+    "fields": {
+      "user": 14,
+      "product": 2,
+      "text": "So so",
+      "rate": 3,
+      "date": "2023-07-27T22:13:32.309Z"
+    }
+  },
+  {
+    "model": "products.review",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "product": 1,
+      "text": "Niiiiiiice",
+      "rate": 4,
+      "date": "2023-07-27T22:29:46.854Z"
+    }
+  },
+  {
+    "model": "products.review",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "product": 1,
+      "text": "Niiiiiiice",
+      "rate": 4,
+      "date": "2023-07-28T16:51:38.296Z"
+    }
+  },
+  {
+    "model": "products.specificationname",
+    "pk": 1,
+    "fields": {
+      "name": "Weight"
+    }
+  },
+  {
+    "model": "products.specificationname",
+    "pk": 2,
+    "fields": {
+      "name": "Screen diagonal"
+    }
+  },
+  {
+    "model": "products.specificationname",
+    "pk": 3,
+    "fields": {
+      "name": "Size"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 1,
+    "fields": {
+      "value": "137"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 2,
+    "fields": {
+      "value": "36"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 3,
+    "fields": {
+      "value": "41"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 4,
+    "fields": {
+      "value": "45"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 5,
+    "fields": {
+      "value": "13"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 6,
+    "fields": {
+      "value": "27"
+    }
+  },
+  {
+    "model": "products.specificationvalue",
+    "pk": 7,
+    "fields": {
+      "value": "3.5"
+    }
+  },
+  {
+    "model": "products.specifications",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "name": 1,
+      "value": 1
+    }
+  },
+  {
+    "model": "products.specifications",
+    "pk": 2,
+    "fields": {
+      "product": 2,
+      "name": 2,
+      "value": 5
+    }
+  },
+  {
+    "model": "products.specifications",
+    "pk": 3,
+    "fields": {
+      "product": 1,
+      "name": 2,
+      "value": 7
+    }
+  }
+]

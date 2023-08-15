@@ -1,0 +1,964 @@
+openapi: 3.0.3
+info:
+  title: TopStore Project API
+  version: 1.0.0
+  description: TopStore - online store
+paths:
+  /api-auth/profile/:
+    get:
+      operationId: api_auth_profile_retrieve
+      description: Get user profile
+      tags:
+      - api-auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Profile'
+          description: ''
+    post:
+      operationId: api_auth_profile_create
+      description: Update user profile
+      tags:
+      - api-auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateUser'
+          description: ''
+  /api-auth/sign-in/:
+    post:
+      operationId: api_auth_sign_in_create
+      description: Sign in
+      tags:
+      - api-auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignIn'
+          description: ''
+  /api-auth/sign-out/:
+    post:
+      operationId: api_auth_sign_out_create
+      description: Sign out
+      tags:
+      - api-auth
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api-auth/sign-up/:
+    post:
+      operationId: api_auth_sign_up_create
+      description: Create new user
+      tags:
+      - api-auth
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SignUp'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/SignUp'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/SignUp'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SignUp'
+          description: ''
+  /api-basket/basket/:
+    get:
+      operationId: api_basket_basket_list
+      description: Get items in basket
+      tags:
+      - api-basket
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Basket'
+          description: ''
+    post:
+      operationId: api_basket_basket_create
+      description: Get items in basket
+      tags:
+      - api-basket
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddProductsBasket'
+          description: ''
+    patch:
+      operationId: api_basket_basket_partial_update
+      description: Update product quantity
+      tags:
+      - api-basket
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RemoveProductsBasket'
+          description: ''
+    delete:
+      operationId: api_basket_basket_destroy
+      description: Delete all items in basket
+      tags:
+      - api-basket
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '204':
+          description: No response body
+  /api-catalog/banners/:
+    get:
+      operationId: api_catalog_banners_list
+      description: Get banner items
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api-catalog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductForCatalogList'
+          description: ''
+  /api-catalog/catalog/:
+    get:
+      operationId: api_catalog_catalog_list
+      description: Get catalog items
+      parameters:
+      - in: query
+        name: available
+        schema:
+          type: boolean
+      - in: query
+        name: free_delivery
+        schema:
+          type: boolean
+      - in: query
+        name: maxPrice
+        schema:
+          type: number
+      - in: query
+        name: minPrice
+        schema:
+          type: number
+      - in: query
+        name: name
+        schema:
+          type: string
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - api-catalog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductForCatalogList'
+          description: ''
+  /api-catalog/category/:
+    get:
+      operationId: api_catalog_category_list
+      description: Get catalog menu
+      tags:
+      - api-catalog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+          description: ''
+  /api-catalog/products-limit/:
+    get:
+      operationId: api_catalog_products_limit_list
+      description: Get catalog limeted items
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api-catalog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductForCatalogList'
+          description: ''
+  /api-catalog/products-popular/:
+    get:
+      operationId: api_catalog_products_popular_list
+      description: Get catalog popular items
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - api-catalog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProductForCatalogList'
+          description: ''
+  /api-catalog/tags/:
+    get:
+      operationId: api_catalog_tags_list
+      description: Get tags
+      tags:
+      - api-catalog
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Tag'
+          description: ''
+  /api-orders/order/{id}/:
+    get:
+      operationId: api_orders_order_retrieve
+      description: Get order detail
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api-orders
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+          description: ''
+    post:
+      operationId: api_orders_order_create
+      description: Confirm order
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api-orders
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderConfirm'
+          description: ''
+  /api-orders/order/{id}/payment/:
+    post:
+      operationId: api_orders_order_payment_create
+      description: Payment system simulator
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api-orders
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Payment'
+          description: ''
+  /api-orders/orders/:
+    get:
+      operationId: api_orders_orders_list
+      description: Get user orders
+      tags:
+      - api-orders
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Order'
+          description: ''
+    post:
+      operationId: api_orders_orders_create
+      description: Create order
+      tags:
+      - api-orders
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /api-products/product/{id}/:
+    get:
+      operationId: api_products_product_retrieve
+      description: Get product detail
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api-products
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+          description: ''
+  /api-products/product/{id}/reviews/:
+    post:
+      operationId: api_products_product_reviews_create
+      description: Create review for product
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api-products
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Reviews'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Reviews'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Reviews'
+        required: true
+      security:
+      - cookieAuth: []
+      - basicAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Reviews'
+          description: ''
+components:
+  schemas:
+    AddProductsBasket:
+      type: object
+      properties:
+        id:
+          type: integer
+        count:
+          type: integer
+          minimum: 1
+      required:
+      - count
+      - id
+    Basket:
+      type: object
+      properties:
+        id:
+          type: string
+          readOnly: true
+        title:
+          type: string
+          readOnly: true
+        price:
+          type: string
+          readOnly: true
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImagesProduct'
+        quantity:
+          type: string
+          readOnly: true
+      required:
+      - id
+      - images
+      - price
+      - quantity
+      - title
+    BlankEnum:
+      enum:
+      - ''
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 150
+        image:
+          type: string
+          format: uri
+          nullable: true
+        subcategories:
+          type: string
+          readOnly: true
+      required:
+      - id
+      - subcategories
+      - title
+    ImagesProduct:
+      type: object
+      properties:
+        image:
+          type: string
+          format: uri
+        description:
+          type: string
+          maxLength: 200
+      required:
+      - image
+    Order:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        createdAt:
+          type: string
+          format: date-time
+          readOnly: true
+        free_delivery:
+          type: boolean
+        payment_type:
+          oneOf:
+          - $ref: '#/components/schemas/PaymentTypeEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+        total_cost:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,8}(?:\.\d{0,2})?$
+        status:
+          type: boolean
+        full_name:
+          type: string
+          readOnly: true
+        city:
+          type: string
+          maxLength: 100
+        address:
+          type: string
+          maxLength: 200
+        email:
+          type: string
+          readOnly: true
+        phone:
+          type: string
+          readOnly: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderProduct'
+          readOnly: true
+      required:
+      - createdAt
+      - email
+      - full_name
+      - id
+      - items
+      - phone
+      - total_cost
+    OrderConfirm:
+      type: object
+      properties:
+        city:
+          type: string
+        address:
+          type: string
+        payment_type:
+          $ref: '#/components/schemas/PaymentTypeEnum'
+        phone:
+          type: string
+      required:
+      - address
+      - city
+      - payment_type
+    OrderProduct:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          readOnly: true
+        category:
+          type: integer
+          readOnly: true
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+          readOnly: true
+        quantity:
+          type: integer
+          maximum: 32767
+          minimum: 0
+          readOnly: true
+        free_delivery:
+          type: boolean
+          readOnly: true
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImagesProduct'
+      required:
+      - category
+      - free_delivery
+      - id
+      - images
+      - price
+      - quantity
+      - title
+    PaginatedProductForCatalogList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProductForCatalog'
+    Payment:
+      type: object
+      properties:
+        number:
+          type: string
+        name:
+          type: string
+        month:
+          type: string
+        year:
+          type: string
+        code:
+          type: string
+      required:
+      - code
+      - month
+      - name
+      - number
+      - year
+    PaymentTypeEnum:
+      enum:
+      - online
+      - offline
+      type: string
+      description: |-
+        * `online` - online
+        * `offline` - offline
+    Product:
+      type: object
+      properties:
+        pk:
+          type: integer
+          readOnly: true
+          title: ID
+        category:
+          type: integer
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+        count:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+          maxLength: 300
+        full_description:
+          type: string
+        free_delivery:
+          type: boolean
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImagesProduct'
+        tags:
+          type: array
+          items:
+            type: string
+        reviews:
+          type: array
+          items:
+            $ref: '#/components/schemas/Reviews'
+        specifications:
+          type: array
+          items:
+            $ref: '#/components/schemas/Specifications'
+        rating:
+          type: string
+          readOnly: true
+      required:
+      - category
+      - date
+      - images
+      - pk
+      - rating
+      - reviews
+      - specifications
+      - tags
+      - title
+    ProductForCatalog:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        category:
+          type: integer
+        price:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,6}(?:\.\d{0,2})?$
+        count:
+          type: integer
+          maximum: 32767
+          minimum: 0
+        date:
+          type: string
+          format: date-time
+          readOnly: true
+        title:
+          type: string
+          maxLength: 200
+        description:
+          type: string
+          maxLength: 300
+        free_delivery:
+          type: boolean
+        images:
+          type: array
+          items:
+            $ref: '#/components/schemas/ImagesProduct'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/Tag'
+        reviews:
+          type: string
+          readOnly: true
+        rating:
+          type: string
+          readOnly: true
+      required:
+      - category
+      - date
+      - id
+      - images
+      - rating
+      - reviews
+      - tags
+      - title
+    Profile:
+      type: object
+      properties:
+        full_name:
+          type: string
+          readOnly: true
+        email:
+          type: string
+          format: email
+        phone:
+          type: string
+        avatar:
+          type: string
+          format: uri
+      required:
+      - avatar
+      - email
+      - full_name
+      - phone
+    RateEnum:
+      enum:
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+      type: integer
+      description: |-
+        * `1` - 1
+        * `2` - 2
+        * `3` - 3
+        * `4` - 4
+        * `5` - 5
+    RemoveProductsBasket:
+      type: object
+      properties:
+        id:
+          type: integer
+        count:
+          type: integer
+          minimum: 1
+      required:
+      - count
+      - id
+    Reviews:
+      type: object
+      properties:
+        author:
+          type: string
+          readOnly: true
+        email:
+          type: string
+          format: email
+          title: Email address
+          readOnly: true
+        text:
+          type: string
+          maxLength: 1000
+        rate:
+          allOf:
+          - $ref: '#/components/schemas/RateEnum'
+          minimum: -2147483648
+          maximum: 2147483647
+        date:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - author
+      - date
+      - email
+      - rate
+    SignIn:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+      - password
+      - username
+    SignUp:
+      type: object
+      properties:
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        password:
+          type: string
+          maxLength: 128
+      required:
+      - password
+      - username
+    Specifications:
+      type: object
+      properties:
+        name:
+          type: string
+          readOnly: true
+        value:
+          type: string
+          readOnly: true
+      required:
+      - name
+      - value
+    Tag:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+      required:
+      - id
+      - name
+    UpdateUser:
+      type: object
+      properties:
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        phone:
+          type: string
+        avatar:
+          type: string
+          format: uri
+          nullable: true
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: sessionid

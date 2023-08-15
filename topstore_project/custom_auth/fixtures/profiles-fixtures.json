@@ -1,0 +1,1 @@
+[{"model": "custom_auth.profile", "pk": 1, "fields": {"user": 1, "phone": "+79991231122", "avatar": "profiles/profile#1/Снимок_экрана_2023-03-18_в_19.23.43.png"}}, {"model": "custom_auth.profile", "pk": 4, "fields": {"user": 14, "phone": "+79991112233", "avatar": ""}}]

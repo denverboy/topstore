@@ -1,0 +1,16 @@
+[
+  {
+    "model": "basket.basket",
+    "pk": 1,
+    "fields": {
+      "user": 1
+    }
+  },
+  {
+    "model": "basket.basket",
+    "pk": 2,
+    "fields": {
+      "user": 14
+    }
+  }
+]

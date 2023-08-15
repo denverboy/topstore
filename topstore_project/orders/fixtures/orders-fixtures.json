@@ -1,0 +1,368 @@
+[
+  {
+    "model": "orders.order",
+    "pk": 3,
+    "fields": {
+      "user": 1,
+      "city": "kras",
+      "address": "mira",
+      "total_cost": "3196.96",
+      "createdAt": "2023-07-29T20:51:41.529Z",
+      "free_delivery": false,
+      "payment_type": "offline",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 4,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "3196.96",
+      "createdAt": "2023-07-31T10:13:44.270Z",
+      "free_delivery": false,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 5,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "3196.96",
+      "createdAt": "2023-07-31T10:40:18.499Z",
+      "free_delivery": false,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 6,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "3196.96",
+      "createdAt": "2023-07-31T10:41:18.924Z",
+      "free_delivery": false,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 7,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "3196.96",
+      "createdAt": "2023-07-31T10:50:57.506Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 8,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "3196.96",
+      "createdAt": "2023-07-31T10:53:58.825Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": true
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 9,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "2796.98",
+      "createdAt": "2023-08-02T10:13:28.732Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 10,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "6592.95",
+      "createdAt": "2023-08-02T10:17:00.358Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 11,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "6392.96",
+      "createdAt": "2023-08-02T10:42:07.368Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 12,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "6392.96",
+      "createdAt": "2023-08-02T11:13:52.391Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 13,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "4994.95",
+      "createdAt": "2023-08-02T11:18:58.854Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": false
+    }
+  },
+  {
+    "model": "orders.order",
+    "pk": 14,
+    "fields": {
+      "user": 1,
+      "city": "",
+      "address": "",
+      "total_cost": "1797.99",
+      "createdAt": "2023-08-02T11:22:46.555Z",
+      "free_delivery": true,
+      "payment_type": "",
+      "status": true
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 5,
+    "fields": {
+      "product": 1,
+      "order": 3,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 6,
+    "fields": {
+      "product": 2,
+      "order": 3,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 7,
+    "fields": {
+      "product": 1,
+      "order": 4,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 8,
+    "fields": {
+      "product": 2,
+      "order": 4,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 9,
+    "fields": {
+      "product": 1,
+      "order": 5,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 10,
+    "fields": {
+      "product": 2,
+      "order": 5,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 11,
+    "fields": {
+      "product": 1,
+      "order": 7,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 12,
+    "fields": {
+      "product": 2,
+      "order": 7,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 13,
+    "fields": {
+      "product": 1,
+      "order": 8,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 14,
+    "fields": {
+      "product": 2,
+      "order": 8,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 15,
+    "fields": {
+      "product": 1,
+      "order": 9,
+      "quantity": 2
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 16,
+    "fields": {
+      "product": 2,
+      "order": 9,
+      "quantity": 3
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 17,
+    "fields": {
+      "product": 1,
+      "order": 10,
+      "quantity": 5
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 18,
+    "fields": {
+      "product": 2,
+      "order": 10,
+      "quantity": 7
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 19,
+    "fields": {
+      "product": 1,
+      "order": 11,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 20,
+    "fields": {
+      "product": 2,
+      "order": 11,
+      "quantity": 7
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 21,
+    "fields": {
+      "product": 1,
+      "order": 12,
+      "quantity": 4
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 22,
+    "fields": {
+      "product": 2,
+      "order": 12,
+      "quantity": 7
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 23,
+    "fields": {
+      "product": 1,
+      "order": 13,
+      "quantity": 5
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 24,
+    "fields": {
+      "product": 2,
+      "order": 13,
+      "quantity": 5
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 25,
+    "fields": {
+      "product": 1,
+      "order": 14,
+      "quantity": 1
+    }
+  },
+  {
+    "model": "orders.orderitems",
+    "pk": 26,
+    "fields": {
+      "product": 2,
+      "order": 14,
+      "quantity": 2
+    }
+  }
+]
